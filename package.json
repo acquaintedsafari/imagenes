@@ -1,0 +1,37 @@
+{
+  "name": "imagenes",
+  "productName": "Imagenes",
+  "version": "2.0.0459",
+  "description": "A native way to access Google Photos.",
+  "author": "Acquainted Safari <mailto@acquaintedsafari.ga>",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-macos": "build --mac dmg",
+    "build-linux-generic": "build --linux AppImage tar.gz --x64",
+    "build-snappy": "build --linux snap tar.gz",
+    "build-win": "build --win"
+  },
+  "keywords": [
+    "Photos",
+    "Google",
+    "images"
+  ],
+  "author": "Acquainted Safari",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "electron-builder": "latest"
+  },
+
+  "build": {
+        "appId": "ga.acquaintedsafari.viva.imagenes",
+        "app-category-type": "public.app-category.photos",
+        "dmg": {
+
+        },
+        "win": {
+            "iconUrl": "http://eatodo.s3.amazonaws.com/icon.ico"
+        }
+    }
+}

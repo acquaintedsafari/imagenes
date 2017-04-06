@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset = "UTF-8">
+    <title>Imagenes [Developer Preview 4]</title>
+    <link rel = "stylesheet" href = "./css/metro.css">
+    <link rel = "stylesheet" href = "./css/metro-colors.css">
+    <link rel = "stylesheet" href = "./css/metro-icons.css">
+    <link rel = "stylesheet" href = "./css/metro-responsive.css">
+    <link rel = "stylesheet" href = "./css/metro-rtl.css">
+    <link rel = "stylesheet" href = "./css/metro-schemes.css">
+    <script defer src = "gpfunc.js"></script>
+    </head>
+    <body>
+    <div class="app-bar orange"> <!--Use darcula when ready for final release-->
+    <div class = "app-bar-element">Imagenes [PREVIEW]</div>
+    <div class = "app-bar-element">
+        <div class="input-control text">
+            <input type="text" placeholder="Search photos" id = "searchTerm">
+        </div>
+    </div>
+        <div class="app-bar-element place-right" onclick = "goToAlbums()">
+        Albums
+        </div>
+        <div class="app-bar-element place-right" onclick = "assistant()">
+        Assistant
+    </div>
+        <div class="app-bar-element place-right" onclick = "goToPhotos()">
+        Photos
+    </div>
+</div>
+    <webview id = "webview" src = "http://photos.google.com" plugins nodeintegration allowpopups webpreferences="allowDisplayingInsecureContent, javascript=yes"  autosize = "on" style="display:inline-flex; width:100%; height:100%"></webview>
+    <script src = "./js/jquery.js"></script>
+    <script src = "./js/metro.js"></script>
+    <script src = "./js/metro.min.js"></script>
+    </body>
+</html>
