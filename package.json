@@ -10,7 +10,7 @@
     "build-macos": "build --mac dmg",
     "build-linux-generic": "build --linux AppImage tar.gz --x64",
     "build-snappy": "build --linux snap tar.gz",
-    "build-win": "build --win"
+    "build-win": "build --win nsis appx"
   },
   "keywords": [
     "Photos",
@@ -26,7 +26,6 @@
 
   "build": {
         "appId": "ga.acquaintedsafari.viva.imagenes",
-        "app-category-type": "public.app-category.photos",
         "dmg": {
 
         },
