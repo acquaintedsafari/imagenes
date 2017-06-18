@@ -1,37 +1,81 @@
+<!--
+Imagenes, Developer Beta 1 (macOS-chr1.1)
+(C) 2017 | Marquis Kurt. Licensed under CC 1.0.
+-->
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset = "UTF-8">
-    <title>Imagenes Beta</title>
-    <link rel = "stylesheet" href = "./css/material.min.css">
-    <script defer src = "gpfunc.js"></script>
-    <script src = "./js/jquery.js"></script>
-    <script src = "./js/material.js"></script>
-    </head>
-    <body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Imagenes</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input type="text" id = "searchTerm" class = "mdl-textfield__input">
-		<label class="mdl-textfield__label" for="searchTerm">Search photos</label>
-        </div>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" onclick = "goToPhotos()">Photos</a>
-        <a class="mdl-navigation__link" onclick = "goToAlbums()">Albums</a>
-        <a class="mdl-navigation__link" onclick = "assistant()">Assistant</a>
-      </nav>
+  <head>
+    <meta charset="UTF-8">
+    <title>Imagenes</title>
+    <link rel = "stylesheet" href = "css/photon.css">
+    <style>
+        .titlebar {-webkit-user-select: none; -webkit-app-region: drag;}
+        .warning {background-color: #e74c3c; color: white;}
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <header class="toolbar toolbar-header titlebar">
+  <h1 class="title">Imagenes</h1>
+
+    <div class="toolbar-actions">
+        <button class="btn btn-default" title = "Sidebar" onClick = "openMenu()">
+          <span class="icon icon-doc"></span>
+        </button>
+    <div class="btn-group pull-right">
+      <button class="btn btn-default" title = "Search" onClick = "search()">
+        <span class="icon icon-search"></span>
+      </button>
+      <button class="btn btn-default" title = "Create">
+        <span class="icon icon-plus"></span>
+      </button>
     </div>
-  </header>
-  <main class="mdl-layout__content"><webview id = "webview" src = "http://photos.google.com" plugins nodeintegration allowpopups webpreferences="allowDisplayingInsecureContent, javascript=yes"  autosize = "on" style="display:inline-flex; width:100%; height:90vh"></webview>
-  </main>
+  </div>
+</header>
+      <div class="window-content">
+          <div class = "pane-group">
+              <div class = "pane-sm sidebar" id = "sidebar">
+                  <ul class="list-group">
+                      <li class="list-group-header warning" onClick = "hideWarning()" id = "warning">
+                          <img class=" media-object pull-left" src="./assets/img/beta.png" width="32" height="32">
+                          <div class="media-body">
+                              <strong>Caution: bugs ahead!</strong>
+                              <p>This is a beta; click to dismiss.</p>
+                          </div>
+                      </li>
+                      <li class="list-group-header">
+                          <input class="form-control" type="text" placeholder="Search photos" id = "searchTerm">
+                              </li>
+                      <li class="list-group-item" onClick = "assistant()" id = "assistant">
+                          <img class=" media-object pull-left" src="./assets/img/assistant.png" width="32" height="32">
+                              <div class="media-body">
+                                  <strong>Assistant</strong>
+                              </div>
+                              </li>
+                      <li class="list-group-item active" onClick = "goToPhotos()" id = "photos">
+                          <img class=" media-object pull-left" src="./assets/img/photos.png" width="32" height="32">
+                              <div class="media-body">
+                                  <strong>Photos</strong>
+                              </div>
+                              </li>
+                      <li class="list-group-item" onClick = "goToAlbums()" id = "albums">
+                          <img class=" media-object pull-left" src="./assets/img/albums.png" width="32" height="32">
+                              <div class="media-body">
+                                  <strong>Albums</strong>
+                              </div>
+                              </li>
+                  </ul>
+                </div>
+              <div class = "pane">
+        <webview id = "webview" src = "http://photos.google.com" plugins nodeintegration allowpopups webpreferences="allowDisplayingInsecureContent, javascript=yes" useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14" autosize = "on" style="display:inline-flex; width:100%; height:100%"></webview>
+        </div>
+        </div>
 </div>
-    </body>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+  <script src = "gpfunc.js"></script>
+
 </html>
